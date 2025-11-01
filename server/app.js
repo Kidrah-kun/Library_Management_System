@@ -5,6 +5,8 @@ const cors = require("cors");
 const app = express();
 const {connectDB} = require("./database/db");
 config({ path: "./config/config.env" });
+const errorMiddleware = require("./middlewares/errorMiddlewares.js");
+
 
 app.use(cors({
     origin:[process.env.FRONTEND_URL],
@@ -17,5 +19,5 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 connectDB();
-
+app.use(errorMiddleware);
 module.exports = { app };
