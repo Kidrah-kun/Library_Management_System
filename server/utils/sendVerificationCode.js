@@ -1,3 +1,6 @@
+const generateVerificationOtpEmailTemplate = require("./emailTemplates.js");
+const sendEmail = require("./sendEmail.js");
+
 async function sendVerificationCode(verificationCode,email,res){
     try {
         const message = generateVerificationOtpEmailTemplate(verificationCode);
@@ -20,4 +23,4 @@ async function sendVerificationCode(verificationCode,email,res){
     }
 }
 
-module.exports = {sendVerificationCode};
+module.exports = sendVerificationCode;
