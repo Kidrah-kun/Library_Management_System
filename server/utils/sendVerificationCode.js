@@ -1,4 +1,4 @@
-const generateVerificationOtpEmailTemplate = require("./emailTemplates.js");
+const {generateVerificationOtpEmailTemplate} = require("./emailTemplates.js");
 const sendEmail = require("./sendEmail.js");
 
 async function sendVerificationCode(verificationCode,email,res){
