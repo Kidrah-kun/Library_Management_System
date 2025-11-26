@@ -10,7 +10,8 @@ const authRouter = require("./routes/authRouter.js");
 const bookRouter = require("./routes/bookRouter.js")
 const borrowRouter = require("./routes/borrowRouter.js");
 const userRouter = require("./routes/userRouter.js");
- 
+const { notifyUsers } = require("./services/notifyUsers.js") 
+const { removeUnverifiedAccounts } = require("./services/removeUnverifiedAccounts.js");
 const expressFileUpload = require("express-fileupload");
 
 
@@ -34,6 +35,8 @@ app.use("/api/v1/auth",authRouter);
 app.use("/api/v1/book",bookRouter);
 app.use("/api/v1/borrow",borrowRouter);
 app.use("/api/v1/user",userRouter);
+notifyUsers();
+removeUnverifiedAccounts();
 connectDB();
 
 app.use(errorMiddleware);

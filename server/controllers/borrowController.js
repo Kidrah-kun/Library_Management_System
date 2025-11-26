@@ -104,7 +104,7 @@ const returnBorrowedBook = catchAsyncErrors(
         await borrow.save();
         res.status(200).json({
             success: true,
-            message: fine > 0 ? `Book has been returned successfully! your total charges including ${fine} are $${book.price + fine} .` : `Book has been returned successfully! your total charges are $${book.price} .`,
+            message: fine > 0 ? `Book has been returned successfully! your total charges including fine ${fine} and price ${book.price} are $${book.price + fine} .` : `Book has been returned successfully! your total charges are $${book.price} .`,
         });
     });
 
